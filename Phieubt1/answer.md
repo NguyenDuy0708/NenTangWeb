@@ -16,10 +16,11 @@ Câu A1 - HTTP & Brower
 ![alt text](image.PNG)
 * Tài liệu: tuan_1_html5/01_introduction_html_universe.md - phần 4.3 Developer Tools (F12) — "Kính hiển vi" cho website
 
-
+---
 Câu A2 - Semantic HTML
 Tại sao trang web dưới đây bị Google đánh giá SEO thấp? Liệt kê ít nhất 4 lỗi semantic và sửa lại.
-''' <div class="header">
+```html
+<div class="header">
     <div class="logo">ShopTLU</div>
     <div class="menu">
         <div><a href="/">Trang chủ</a></div>
@@ -34,14 +35,15 @@ Tại sao trang web dưới đây bị Google đánh giá SEO thấp? Liệt kê
     </div>
 </div>
 <div class="footer">© 2026 ShopTLU</div>
-
-* Trang web dưới đây bị Google đánh giá SEO thấp vì sử dụng toàn thẻ <div>, google không hiểu đâu là header, memu, main
+```
+* Trang web dưới đây bị Google đánh giá SEO thấp vì sử dụng toàn thẻ `<div>`, google không hiểu đâu là header, memu, main
 * Các lỗi semantic trong đoạn code trên:
-    - Sử dụng <div class="header">, <div class="main">, <div class="footer">
-    - Sử dụng thẻ <div> lồng nhau cho menu
-    - Tên sản phẩm để trong <div class="title">
-    - <img src="iphone.jpg"> thiếu thuộc tính
+    - Sử dụng `<div class="header">`, `<div class="main">`, `<div class="footer">`
+    - Sử dụng thẻ `<div>` lồng nhau cho menu
+    - Tên sản phẩm để trong `<div class="title">`
+    - `<img src="iphone.jpg">` thiếu thuộc tính
 * Code sau khi sửa:
+```html
 <header>
     <div class="logo">ShopTLU</div>
     <nav>
@@ -59,3 +61,4 @@ Tại sao trang web dưới đây bị Google đánh giá SEO thấp? Liệt kê
     </article>
 </main>
 <footer><p>© 2026 ShopTLU</p></footer>
+```
