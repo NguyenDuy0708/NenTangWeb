@@ -13,7 +13,7 @@
     - Tổng thời gian load trang
     - Một request trả về file CSS
 * Trong DevTools của Chrome, tab Network cho thấy requests/responses
-![alt text](image.PNG)
+![alt text](image/image.PNG)
 * Tài liệu: tuan_1_html5/01_introduction_html_universe.md - phần 4.3 Developer Tools (F12) — "Kính hiển vi" cho website
 ---
 # Câu A2 - Semantic HTML
@@ -75,7 +75,7 @@ Tại sao trang web dưới đây bị Google đánh giá SEO thấp? Liệt kê
 <div>Hộp 3</div>
 ```
 Kết quả: 
-![alt text](image-1.png)
+![alt text](image/image-1.png)
 - Thẻ `<div>`: Nhóm nhiều phần lại, chiếm cả dòng, thuộc loại Block
 - Thẻ '`<span>`: Không xuống dòng, không chiếm cả dòng, thuộc loại Inline
 - Thẻ `<strong>`: Nhấn mạnh ngữ nghĩa, in đậm, thuộc loại Inline
