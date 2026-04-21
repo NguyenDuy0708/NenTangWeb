@@ -8,7 +8,6 @@ Câu A1 - HTTP & Brower
     - Bước 6:
 * Tài liệu: tuan_1_html5/01_introduction_html_universe.md - phần 1.Web hoạt động như thế nào?
 
-
 2. Trong DevTools của Chrome, tab Network cho thấy thông tin gì? Hãy mở một trang web bất kỳ, chụp screenshot tab Network và đánh dấu (vẽ mũi tên/khoanh tròn) vào:
     - Status Code của request đầu tiên
     - Tổng thời gian load trang
@@ -16,3 +15,47 @@ Câu A1 - HTTP & Brower
 * Trong DevTools của Chrome, tab Network cho thấy requests/responses
 ![alt text](image.PNG)
 * Tài liệu: tuan_1_html5/01_introduction_html_universe.md - phần 4.3 Developer Tools (F12) — "Kính hiển vi" cho website
+
+
+Câu A2 - Semantic HTML
+Tại sao trang web dưới đây bị Google đánh giá SEO thấp? Liệt kê ít nhất 4 lỗi semantic và sửa lại.
+<div class="header">
+    <div class="logo">ShopTLU</div>
+    <div class="menu">
+        <div><a href="/">Trang chủ</a></div>
+        <div><a href="/products">Sản phẩm</a></div>
+    </div>
+</div>
+<div class="main">
+    <div class="product">
+        <div class="title">iPhone 16 Pro</div>
+        <div class="price">25.990.000đ</div>
+        <div class="image"><img src="iphone.jpg"></div>
+    </div>
+</div>
+<div class="footer">© 2026 ShopTLU</div>
+
+* Trang web dưới đây bị Google đánh giá SEO thấp vì sử dụng toàn thẻ <div>, google không hiểu đâu là header, memu, main
+* Các lỗi semantic trong đoạn code trên:
+    - Sử dụng <div class="header">, <div class="main">, <div class="footer">
+    - Sử dụng thẻ <div> lồng nhau cho menu
+    - Tên sản phẩm để trong <div class="title">
+    - <img src="iphone.jpg"> thiếu thuộc tính
+* Code sau khi sửa:
+<header>
+    <div class="logo">ShopTLU</div>
+    <nav>
+        <ul>
+            <li><a href="/">Trang chủ</a></li>
+            <li><a href="/products">Sản phẩm</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <article class="product">
+        <h2>iPhone 16 Pro</h2>
+        <p class="price">25.990.000đ</p>
+        <img src="iphone.jpg" alt="iPhone 16 Pro">
+    </article>
+</main>
+<footer><p>© 2026 ShopTLU</p></footer>
