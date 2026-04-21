@@ -11,7 +11,7 @@ Câu A1 - HTTP & Brower
 
 2. Trong DevTools của Chrome, tab Network cho thấy thông tin gì? 
     - Xem requests/responses
-    Hãy mở một trang web bất kỳ, chụp screenshot tab Network và đánh dấu (vẽ mũi tên/khoanh tròn) vào:
+Hãy mở một trang web bất kỳ, chụp screenshot tab Network và đánh dấu (vẽ mũi tên/khoanh tròn) vào:
     - Status Code của request đầu tiên
     - Tổng thời gian load trang
     - Một request trả về file CSS
