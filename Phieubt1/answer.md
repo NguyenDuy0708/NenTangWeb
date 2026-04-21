@@ -13,6 +13,6 @@ Câu A1 - HTTP & Brower
     - Status Code của request đầu tiên
     - Tổng thời gian load trang
     - Một request trả về file CSS
-   * Trong DevTools của Chrome, tab Network cho thấy requests/responses
+* Trong DevTools của Chrome, tab Network cho thấy requests/responses
 ![alt text](image.PNG)
 * Tài liệu: tuan_1_html5/01_introduction_html_universe.md - phần 4.3 Developer Tools (F12) — "Kính hiển vi" cho website
