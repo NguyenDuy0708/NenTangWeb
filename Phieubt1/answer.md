@@ -19,7 +19,7 @@ Câu A1 - HTTP & Brower
 
 Câu A2 - Semantic HTML
 Tại sao trang web dưới đây bị Google đánh giá SEO thấp? Liệt kê ít nhất 4 lỗi semantic và sửa lại.
-<div class="header">
+''' <div class="header">
     <div class="logo">ShopTLU</div>
     <div class="menu">
         <div><a href="/">Trang chủ</a></div>
