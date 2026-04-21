@@ -80,3 +80,18 @@ Kết quả:
 - Thẻ '`<span>`: Không xuống dòng, không chiếm cả dòng, thuộc loại Inline
 - Thẻ `<strong>`: Nhấn mạnh ngữ nghĩa, in đậm, thuộc loại Inline
 * Tài liệu: tuan_1_html5/02_basic_structure_html.md
+---
+# Câu A4 - Table
+* Giải thích sự khác nhau giữa `<thead>`, `<tbody>`, `<tfoot>`. Tại sao KHÔNG NÊN dùng table để tạo layout trang web? (Ghi rõ ít nhất 3 lý do)
+
+|Thẻ|Vai trò|
+|---|-------|
+|`<thead>`|Đầu bảng chứa tiêu đề cột|
+|`<tbody>`|Chứa nội dung chính|
+|`<tfoot>`|Chứa nội dung tổng kết|
+
+* Lý do KHÔNG NÊN dùng table để tạo layout trang web:
+    - Semantic kém: Google nghĩ là đang làm bảng dữ liệu, không phải layout
+    - Code rất khó bảo trì: Lồng nhiều `<tr>`, `<td>` -> rối code
+    - Tải chậm hơn: Trình duyệt phải load xong bảng mới render
+* Tài liệu: tuan_1_html5/05_tables_hyperlinks.md
