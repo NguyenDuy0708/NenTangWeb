@@ -61,4 +61,3 @@ Tại sao trang web dưới đây bị Google đánh giá SEO thấp? Liệt kê
     </article>
 </main>
 <footer><p>© 2026 ShopTLU</p></footer>
-```
