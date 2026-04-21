@@ -1,4 +1,4 @@
-Câu A1 - HTTP & Brower
+# Câu A1 - HTTP & Brower
 1. Khi bạn gõ https://shopee.vn vào trình duyệt và nhấn Enter, hãy liệt kê đúng thứ tự ít nhất 5 bước xảy ra (từ DNS lookup đến render).
     - Bước 1: Trình duyệt sẽ dịch địa chỉ của https://shopee.vn thành địa chỉ IP để máy tính hiểu
     - Bước 2: Sau khi có địa chỉ, trình duyệt gửi một HTTP Request đến Server của Shopee
@@ -15,9 +15,8 @@ Câu A1 - HTTP & Brower
 * Trong DevTools của Chrome, tab Network cho thấy requests/responses
 ![alt text](image.PNG)
 * Tài liệu: tuan_1_html5/01_introduction_html_universe.md - phần 4.3 Developer Tools (F12) — "Kính hiển vi" cho website
-
 ---
-Câu A2 - Semantic HTML
+# Câu A2 - Semantic HTML
 Tại sao trang web dưới đây bị Google đánh giá SEO thấp? Liệt kê ít nhất 4 lỗi semantic và sửa lại.
 ```html
 <div class="header">
@@ -61,3 +60,23 @@ Tại sao trang web dưới đây bị Google đánh giá SEO thấp? Liệt kê
     </article>
 </main>
 <footer><p>© 2026 ShopTLU</p></footer>
+```
+* Tài liệu: tuan_1_html5/04_visible_part_html.md
+---
+# Câu A3 - Block and Inline
+* Không chạy code, hãy vẽ tay (hoặc mô tả bằng text art) kết quả hiển thị của đoạn HTML sau. Giải thích tại sao.
+```html
+<div>Hộp 1</div>
+<span>Text A</span>
+<span>Text B</span>
+<div>Hộp 2</div>
+<span>Text C</span>
+<strong>Text D</strong>
+<div>Hộp 3</div>
+```
+Kết quả: 
+![alt text](image-1.png)
+- Thẻ `<div>`: Nhóm nhiều phần lại, chiếm cả dòng, thuộc loại Block
+- Thẻ '`<span>`: Không xuống dòng, không chiếm cả dòng, thuộc loại Inline
+- Thẻ `<strong>`: Nhấn mạnh ngữ nghĩa, in đậm, thuộc loại Inline
+* Tài liệu: tuan_1_html5/02_basic_structure_html.md
