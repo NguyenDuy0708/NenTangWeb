@@ -97,6 +97,17 @@ Kết quả:
 * Tài liệu: tuan_1_html5/05_tables_hyperlinks.md
 ---
 # Câu C1 - Thiết kế cấu trúc
+* Bạn được giao thiết kế cấu trúc HTML cho trang chi tiết sản phẩm (giống trang sản phẩm Shopee/Tiki). Trang bao gồm:
+    - Header + Navigation
+    - Breadcrumb (Trang chủ > Điện thoại > iPhone 16)
+    - Khu vực ảnh sản phẩm (5 ảnh)
+    - Thông tin sản phẩm (tên, giá, đánh giá sao, mô tả)
+    - Bảng thông số kỹ thuật
+    - Khu vực đánh giá/bình luận
+    - Sidebar: Sản phẩm tương tự
+    - Footer
+* Yêu cầu: Viết chỉ phần cấu trúc HTML (không cần nội dung thật, chỉ cần đúng thẻ và nesting). Mỗi thẻ phải có comment giải thích tại sao bạn chọn thẻ đó.
+* Bài làm:
 ```html
 <!DOCTYPE html>
 <html lang="vi">
