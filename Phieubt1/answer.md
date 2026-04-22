@@ -191,7 +191,7 @@ Kết quả:
 </html>
 ```
 ---
-Câu C2 - So sánh & Suy luận
+# Câu C2 - So sánh & Suy luận
 * Một đồng nghiệp nói: "Dùng `<div>` cho mọi thứ rồi thêm class là được, không cần semantic HTML. Tốn thời gian học thêm thẻ mới."
 
 * Viết 1 đoạn phản biện (200-300 từ), phải bao gồm:
