@@ -96,6 +96,35 @@ Kết quả:
     - Tải chậm hơn: Trình duyệt phải load xong bảng mới render
 * Tài liệu: tuan_1_html5/05_tables_hyperlinks.md
 ---
+# Câu B3 - Debug HTML
+
+* Lỗi 1: Dòng 1 — <!DOCTYPE> sai chuẩn — Sửa thành `<!DOCTYPE html>`
+
+* Lỗi 2: Dòng 2 — `<html>` thiếu lang — Sửa thành `<html lang="vi">`
+
+* Lỗi 3: Dòng 4 — charset sai "utf8" — Sửa thành "UTF-8"
+
+* Lỗi 4: Dòng 6 — `<title>` không đóng — Thêm `</title>`
+
+* Lỗi 5: Dòng 9 — `<h1>` không đóng đúng — Sửa thành `</h1>`
+
+* Lỗi 6: Dòng 13 — `<a>` không đóng — Thêm `</a>`
+
+* Lỗi 7: Dòng 20 — `<h3>` không hợp lý semantic — Đổi thành `<h2>`
+
+* Lỗi 8: Dòng 21 — `<img>` thiếu alt + thiếu "" — Sửa thành `<img src="iphone.jpg" alt="...">`
+
+* Lỗi 9: Dòng 23 — `<b>` đóng sai thứ tự — Sửa thành `<strong>...</strong>`
+
+* Lỗi 10: Dòng 28-41 — Table thiếu thead/tbody — Bổ sung
+
+* Lỗi 11: Dòng 4 — Dùng 2 `<main>` sai semantic — Đổi cái thứ 2 thành `<aside>`
+
+* Lỗi 12: Dòng 50 — Trong thẻ `<footer>` không đóng thẻ `<p>` — Thêm `</p>`
+
+* Lỗi 13: Thiếu meta viewport — Thêm `<meta name="viewport"...>`
+
+---
 # Câu C1 - Thiết kế cấu trúc
 * Bạn được giao thiết kế cấu trúc HTML cho trang chi tiết sản phẩm (giống trang sản phẩm Shopee/Tiki). Trang bao gồm:
     - Header + Navigation
