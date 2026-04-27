@@ -123,7 +123,19 @@ Kết quả:
 * Lỗi 12: Dòng 50 — Trong thẻ `<footer>` không đóng thẻ `<p>` — Thêm `</p>`
 
 * Lỗi 13: Thiếu meta viewport — Thêm `<meta name="viewport"...>`
-
+---
+# Câu B4 - Phân tích trang web thật
+* Tại trang web `thegioididongg.com` có:
+1. Các thẻ sematic:
+- Thẻ `<header>`: Phần đầu của trang web ![alt text](screenshots/header.png)
+- Thẻ `<footer>`: Phần cuối trang web ![alt text](screenshots/footer.png)
+- Thẻ `<section>`: phần nhóm các từ được mọi người tìm kiếm ![alt text](screenshots/section.png)
+2. Thẻ `<table>`: Em không tìm thấy
+3. Thẻ `<form>`: Tại phần tìm kiếm
+- `action` chỉ đến đường dẫn `\timkiem`
+- `method`: đây là chức năng tìm kiếm nên `method` sẽ là `GET`
+- `input` dạng text
+![alt text](screenshots/form.png)
 ---
 # Câu C1 - Thiết kế cấu trúc
 * Bạn được giao thiết kế cấu trúc HTML cho trang chi tiết sản phẩm (giống trang sản phẩm Shopee/Tiki). Trang bao gồm:
