@@ -43,3 +43,27 @@ Không chạy code, hãy dự đoán điều gì xảy ra khi user bấm Submit 
 - TH4: ![alt text](screenshots/th4.png)
 - TH5: ![alt text](screenshots/th5.png)
 * Tài liệu tham chiếu: tuan_1_html5/07_forms_interactive.md -> HTML5 Validation Attributes
+---
+# Câu A3 — Accessibility
+1. Tại sao `<label for="email">` quan trọng cho người dùng screen reader?
+- `<label>` giúp biết được với ô input này sẽ được dùng cho cái gì. Khi có `<label>` screen reader sẽ đọc được là `"Email, edit text"`, người khiếm thị sẽ biết được ô này được dùng để nhập Email. Nếu không có `<label>` thì screen reader chỉ đọc `"edit text"`, người khiếm thị sẽ không ô này để làm gì?
+2. Khi nào dùng `<fieldset>` + `<legend>`? Cho ví dụ cụ thể.
+- `<fieldset>` + `<legend>` được dùng khi: Nhóm nhiều input liên quan lại với nhau
+- VÍ dụ:
+```html
+<fieldset>
+  <legend>Giới tính</legend>
+
+  <label>
+    <input type="radio" name="gender" value="male"> Nam
+  </label>
+
+  <label>
+    <input type="radio" name="gender" value="female"> Nữ
+  </label>
+</fieldset>
+```
+3. `aria-label` dùng khi nào? Tại sao KHÔNG nên dùng aria-label khi đã có `<label>`?
+- `aria-label` được dùng khi: Không có `<label>` hiển thị nhưng vẫn cần mô tả
+- Không nên dùng `aria-label` khi đã có `<label>` vì `aria-label` sẽ ghi đè `<label>` thật
+### Tài liệu tham chiếu: tuan_1_html5/07_forms_interactive.md -> Accessibility — Form cho mọi người
