@@ -11,3 +11,35 @@
 10. `type="file"` → Nút upload file → Có thể giới hạn loại file (accept) → Dùng upload ảnh (ví dụ feedback sản phẩm)
 
 * Tài liệu tham chiếu: tuan_1_html5/07_forms_interactive.md -> Các Input Types HTML5
+---
+# Câu A2 — Validation Attributes
+Không chạy code, hãy dự đoán điều gì xảy ra khi user bấm Submit cho mỗi trường hợp sau. Giải thích TẠI SAO.
+```html
+<!-- Trường hợp 1 -->
+<input type="text" required value="">   <!-- User để trống -->
+
+<!-- Trường hợp 2 -->
+<input type="email" value="abc">        <!-- User gõ "abc" -->
+
+<!-- Trường hợp 3 -->
+<input type="number" min="1" max="10" value="15"> <!-- User gõ 15 -->
+
+<!-- Trường hợp 4 -->
+<input type="text" pattern="[0-9]{10}" value="abc123"> <!-- User gõ "abc123" -->
+
+<!-- Trường hợp 5 -->
+<input type="password" minlength="8" value="123">  <!-- User gõ "123" -->
+```
+- TH1->Form không submit: Có sự mâu thuẫn giữa `required`(bắt buộc nhập) và `value=""`(dể trống)
+- TH2->Form không submit: Ở đây `type="email"` chỉ nhập `abc` thiếu `@` nên sẽ bị lỗi cú pháp
+- TH3->Form không submit: Thấy `min="1"` và `max="10"` nghĩa là giá trị sẽ nằm trong đoạn từ 1-10, user nhập 15 vượt quá giới hạn max nên sẽ bị lỗi
+- TH4->Form không submit: `pattern="[0-9]{10}"` là chỉ chứa số, đúng 10 chữ số, user nhập `abc123` vi phạm lỗi có chữ và không đủ 10 số
+- TH5->Form không submit: `minlength="8"` nghĩa là tối tiểu là 8 ký tự nhưng user chỉ để là `123` ch có 3 ký tự sẽ vi phạm lỗi không đủ độ dài tối thiểu
+
+* Sau khi thực hành đây là kết quả thực tế:
+- TH1: ![alt text](screenshots/th1.png)
+- TH2: ![alt text](screenshots/th2.png)
+- TH3: ![alt text](screenshots/th3.png)
+- TH4: ![alt text](screenshots/th4.png)
+- TH5: ![alt text](screenshots/th5.png)
+* Tài liệu tham chiếu: tuan_1_html5/07_forms_interactive.md -> HTML5 Validation Attributes
