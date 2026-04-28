@@ -110,3 +110,80 @@ VÍ dụ 2: Blog review sản phẩm
   <figcaption>Chất lượng ảnh chụp ban đêm từ iPhone 16</figcaption>
 </figure>
 ```
+---
+# Câu C1 - Debug Form
+Form dưới đây có 8 lỗi về validation, accessibility, và best practices. Tìm và sửa tất cả.
+```html
+<form>
+    Tên: <input type="text">
+    
+    <input type="email" placeholder="Email của bạn">
+    
+    <input type="password" placeholder="Mật khẩu">
+    <input type="password" placeholder="Nhập lại mật khẩu">
+    
+    Phone: <input type="text" value="0901234567">
+    
+    <select>
+        <option>Hà Nội</option>
+        <option>TP.HCM</option>
+    </select>
+    
+    <label>
+        Tôi đồng ý điều khoản
+    </label>
+    
+    <input type="submit" value="Gửi">
+</form>
+```
+1. Lỗi 1: Dòng 2: Input "Tên" không có `<label for="...">`, vi phạm accessibility
+- Sửa: 
+```html 
+<label for="name">Tên:</label> 
+<input type="text" id="name" name="name" required>
+```
+2. Lỗi 2: Dòng 4 — Input email không có `<label>` → Placeholder không thay thế label
+- Sửa:
+```html
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required>
+```
+3. Lỗi 3: Dòng 6 — Input password không có `<label>` → Người dùng không biết trường này là gì
+- Sửa:
+```html
+<label for="password">Mật khẩu:</label>
+<input type="password" id="password" name="password" required>
+```
+4. Lỗi 4: Dòng 7 — Input xác nhận mật khẩu không có `<label>` → Người dùng không biết trường này là gì
+- Sửa:
+```html
+<label for="confirm">Nhập lại mật khẩu:</label>
+<input type="password" id="confirm" name="confirm" required>
+```
+5. Lỗi 5: Dòng 9 — Phone dùng `type="text"` → Nên sử dụng `type = "tel"`
+- Sửa:
+```html
+<label for="phone">Số điện thoại:</label>
+<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+```
+6. Lỗi 6: Dòng 11 — `<select>` không có label + thiếu value → Kém accessibility
+- Sửa:
+```html
+<label for="city">Thành phố:</label>
+<select id="city" name="city" required>
+    <option value="">--Chọn--</option>
+    <option value="hn">Hà Nội</option>
+    <option value="hcm">TP.HCM</option>
+</select>required>
+```
+7. Lỗi 7: Dòng 16 — Checkbox điều khoản bị thiếu `<input type="checkbox">`
+- Sửa:
+```html
+<input type="checkbox" id="terms" name="terms" required>
+<label for="terms">Tôi đồng ý điều khoản</label>
+```
+8. Lỗi 8: Dòng 9 — Dùng value mặc định cho số điện thoại
+- Sửa:
+```html
+<input type="tel" id="phone" name="phone" required>
+```
