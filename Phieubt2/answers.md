@@ -67,3 +67,11 @@ Không chạy code, hãy dự đoán điều gì xảy ra khi user bấm Submit 
 - `aria-label` được dùng khi: Không có `<label>` hiển thị nhưng vẫn cần mô tả
 - Không nên dùng `aria-label` khi đã có `<label>` vì `aria-label` sẽ ghi đè `<label>` thật
 ### Tài liệu tham chiếu: tuan_1_html5/07_forms_interactive.md -> Accessibility — Form cho mọi người
+---
+# Câu A4 — Media
+1. `loading="lazy"` trong `<img>` là thuộc tính giúp trì hoãn việc tải ảnh cho đến khi ảnh đó sắp xuất hiện trong màn hình. Nó giúp Tăng tốc độ tải trang ban đầu, Cải thiện trải nghiệm người dùng, nhất là trên mobile mạng yếu. Không nên sủ dụng nó trong trường hợp: Ảnh quan trọng ở đầu trang, Ảnh cần hiển thị ngay lập tức để tránh layout bị “nhảy” (ảnh banner, ảnh sản phảm nổi bật, ảnh chính bài viết,...)
+2. Nên cung cấp nhiều `<source>` trong thẻ `<video>` vì Trình duyệt sẽ tự chọn format nó hỗ trợ, giúp tăng khả năng tương thích-> Video chạy được trên nhiều thiết bị hơn (Chrome, Safari, Firefox,...). 3 format video web phổ biến: MP4, WebM, Ogg
+3. Thuộc tính `alt` trên `<img>` dùng để: cung cấp mô tả văn bản cho hình ảnh trong trường hợp hình ảnh không thể hiển thị hoặc cho các công cụ tìm kiếm và người dùng khiếm thị,
+- Với Ảnh sản phẩm iPhone 16: `alt="iPhone 16 màu đen, màn hình 6.1 inch, thiết kế viền mỏng"`
+- Với Ảnh trang trí: Không có nội dung gì -> `alt=""`
+- Với Ảnh biểu đồ doanh thu: `alt="Biểu đồ doanh thu quý 1 năm 2026, tăng trưởng từ tháng 1 đến tháng 4"`
