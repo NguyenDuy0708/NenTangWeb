@@ -187,3 +187,25 @@ Form dưới đây có 8 lỗi về validation, accessibility, và best practice
 ```html
 <input type="tel" id="phone" name="phone" required>
 ```
+---
+# CâuC2 - Thiết kế chiến lược Validation
+#### Xây dựng form đăng ký cho ngân hàng số. Yêu cầu:
+- CMND/CCCD: đúng 12 chữ số
+- Số tài khoản: 10-15 chữ số
+- Email: bắt buộc, đúng format
+- PIN: đúng 6 chữ số, KHÔNG hiển thị
+
+1. Viết `pattern` regex cho CMND/CCCD và Số tài khoản
+- CMND/CCCD (đúng 12 chữ số): `pattern="^[0-9]{12}$"`
+- Số tài khoản (10–15 chữ số): `pattern="^[0-9]{10,15}$"`
+2. Giải thích: HTML5 validation đủ an toàn cho ứng dụng ngân hàng chưa? Tại sao?
+HTML5 validation KHÔNG đủ an toàn cho ứng dụng ngân hàng. Vì:
+- Chỉ chạy ở frontend
+- Người dùng có thể:Tắt validation, sửa code HTML bằng DevTools
+3. Liệt kê 3 loại validation mà HTML5 KHÔNG THỂ làm được (phải dùng JavaScript)
+- So sánh giữa các trường: PIN nhập lại phải giống PIN ban đầu
+- Nghiệp vụ phức tạp: Kiểm tra tuổi ≥ 18 từ ngày sinh
+- Kiểm tra dữ liệu với server: Email đã tồn tại chưa, số tài khoản có hợp lệ trong hệ thống không
+4. 2 rủi ro bảo mật nếu chỉ validate frontend
+- Lách kiểm tra: Hacker gửi dữ liệu sai trực tiếp lên server
+- Tấn công bảo mật: Hacker không chỉ gửi dữ liệu sai mà còn gửi cả dữ liệu có mã độc
