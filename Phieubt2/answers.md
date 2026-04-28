@@ -75,3 +75,38 @@ Không chạy code, hãy dự đoán điều gì xảy ra khi user bấm Submit 
 - Với Ảnh sản phẩm iPhone 16: `alt="iPhone 16 màu đen, màn hình 6.1 inch, thiết kế viền mỏng"`
 - Với Ảnh trang trí: Không có nội dung gì -> `alt=""`
 - Với Ảnh biểu đồ doanh thu: `alt="Biểu đồ doanh thu quý 1 năm 2026, tăng trưởng từ tháng 1 đến tháng 4"`
+# Câu A5 — So sánh `<figure>` vs `<img>`
+```html
+<!-- Cách 1 -->
+<img src="product.jpg" alt="iPhone">
+
+<!-- Cách 2 -->
+<figure>
+    <img src="product.jpg" alt="iPhone 16 Pro Max 256GB Titan">
+    <figcaption>iPhone 16 Pro Max — 25.990.000đ</figcaption>
+</figure>
+```
+#### Cách 1 dùng khi ảnh chỉ để hiển thị, không cần chú thích rõ ràng đi kèm. Gọn, đơn giản, không có caption, dùng cho icon, ảnh phụ.
+Ví dụ 1: Ảnh thumbnail sản phẩm 
+```html 
+<img src="iphone-thumb.jpg" alt="iPhone 16">
+```
+VÍ dụ 2: Icon trong giao diện 
+```html 
+<img src="cart-icon.png" alt="Giỏ hàng">
+```
+#### Cách 2 dùng khi ảnh có ý nghĩa độc lập + cần chú thích đi kèm. Có figcaption mô tả rõ nội dung, tốt cho semantic, dùng khi ảnh là nội dung chính
+Ví dụ 1: Trang chi tiết sản phẩm
+```html 
+<figure>
+  <img src="iphone16.jpg" alt="iPhone 16 Pro Max 256GB Titan">
+  <figcaption>iPhone 16 Pro Max — 25.990.000đ</figcaption>
+</figure>
+```
+VÍ dụ 2: Blog review sản phẩm
+```html 
+<figure>
+  <img src="camera-test.jpg" alt="Ảnh chụp từ camera iPhone 16 ban đêm">
+  <figcaption>Chất lượng ảnh chụp ban đêm từ iPhone 16</figcaption>
+</figure>
+```
