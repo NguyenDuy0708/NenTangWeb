@@ -257,3 +257,6 @@ Thứ hai là Accessibility (khả năng truy cập). Người dùng dùng scree
 Ví dụ cụ thể: Một trang tin tức dùng `<article>` cho mỗi bài viết và `<h1>` cho tiêu đề. Screen reader có thể liệt kê tất cả bài viết và tiêu đề để người dùng chọn nhanh. Nếu dùng `<div>`, chức năng này gần như mất đi.
 Tuy nhiên, `<div>` vẫn rất cần thiết trong thực tế. Nó phù hợp cho layout và styling khi không có ý nghĩa semantic rõ ràng.
 Tóm lại: Semantic HTML giúp website dễ hiểu hơn cho máy tìm kiếm và con người, còn `<div>` nên dùng đúng chỗ thay vì thay thế tất cả.
+---
+# CaauD - Video: 
+https://drive.google.com/drive/folders/1BCKjT6CJm6Mm8TLHa_9kToKog42KpMU6?usp=drive_link
