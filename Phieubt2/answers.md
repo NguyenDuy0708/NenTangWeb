@@ -209,3 +209,6 @@ HTML5 validation KHÔNG đủ an toàn cho ứng dụng ngân hàng. Vì:
 4. 2 rủi ro bảo mật nếu chỉ validate frontend
 - Lách kiểm tra: Hacker gửi dữ liệu sai trực tiếp lên server
 - Tấn công bảo mật: Hacker không chỉ gửi dữ liệu sai mà còn gửi cả dữ liệu có mã độc
+---
+# Câu D - Video
+Link video: https://drive.google.com/file/d/1jfToEUQQp2uXXYkvXhfvvTfz5vQKfBc0/view?usp=drive_link
