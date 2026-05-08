@@ -158,7 +158,8 @@ Vì: margin-top và margin-bottom theo chiều dọc bị collapse. Browser khô
 ```
 Theo công thức -> 40 + (-10) = 30px => Khoảng cách = 30px
 #### Tài liệu tham chiếu: tuan_2_css_core/11_box_model.md
---- Câu A4 - Specificity 
+--- 
+# Câu A4 - Specificity 
 Cho các CSS rules sau cùng target 1 element `<p class="price" id="main-price">`:
 ```css
 p { color: black; }                    /* Rule A */
