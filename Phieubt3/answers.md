@@ -205,3 +205,11 @@ So sánh thì rule C có điểm ưu tiên là (1,0,0) là mạnh nhết->Rule C
 #### 4. Nếu Rule A thêm !important, element có màu gì? Tại sao?
 - `!important` là mạnh nhất dù rule C có id vẫn thua -> màu hiển thị: black
 #### Tài liệu tham chiếu: tuan_2_css_core/10_inheritance_cascading.md -> Cascade
+---
+# Câu B1 - Style trang Profile
+Trong file có các loại selector sau:
+- Tag selector: body, header, footer, main, figure, img, table, th, td, thead, tbody, tr, a,...
+- ID selector: #skills table
+- Class selector: .active 
+- Universal Selector (*): * { box-sizing: border-box; }
+- Pseudo-classes: header nav ul, header nav ul li a ,...
