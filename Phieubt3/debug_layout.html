@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug CSS Layout</title>
+    <link rel="stylesheet" href="debug_layout.css">
+</head>
+<body>
+    <h1>1. Layout gốc</h1>
+    <div class="container broken">
+        <div class="sidebar">Sidebar</div>
+        <div class="content">Content</div>
+    </div>
+
+    <h1>2. Dùng border-box</h1>
+    <div class="container fix-border-box">
+        <div class="sidebar">Sidebar</div>
+        <div class="content">Content</div>
+    </div>
+
+    <h1>3. Không dùng border-box</h1>
+    <div class="container fix-normal">
+        <div class="sidebar">Sidebar</div>
+        <div class="content">Content</div>
+    </div>
+</body>
+</html>

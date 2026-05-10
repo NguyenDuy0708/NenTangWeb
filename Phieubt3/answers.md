@@ -305,3 +305,156 @@ Ví dụ:
 - Nếu .highlight viết sau .text: => màu xanh lá.
 - Nếu .text viết sau: => màu xanh dương.
 
+--- 
+# Câu C1 - Debug CSS Layout
+Đoạn code cho trước:
+```css
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+.sidebar {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    float: left;
+}
+.content {
+    width: 660px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    float: left;
+}
+```
+## 1. Tính chiều rộng thực tế của sidebar và content (content-box!)
+#### Vì mặc định là: `box-sizing: content-box` nên tổng width = content + padding + border
+- Sidebar thực tế = 300 + 20 + 20 + 1 + 1 = 342px
+- Content thực tế = 660 + 30 + 30 + 1 + 1 = 722px
+##### Tổng chiều rộng = 342 + 722 = 1064px
+Trong khi container chỉ: 960px
+## 2. Tại sao layout bị vỡ
+- Vì: 1064px > 960px 
+#### => `.content` không đủ chỗ nằm cạnh `.sidebar`
+- Do cả hai đều `float: left;`
+#### => Browser sẽ đẩy `.content` xuống dòng dưới.
+## 3. 2 cách sửa khác nhau: dùng border-box và không dùng border-box
+### Cách sửa 1 — Dùng border-box
+- Sidebar: 300px
+- Content: 660px
+##### Tổng = 300 + 660 = 960px => vừa container.
+### Cách sửa 2 — Không dùng border-box
+- Sidebar thực = 300 + 20 + 20 + 1 + 1 = 342px
+- Container = 960px
+##### => Content tối đa = 960 − 342 = 618px
+- Content đang có: padding = 30 + 30; border = 1 + 1
+##### => Width content phải bằng 618 − 30 − 30 − 1 − 1 = 556px
+
+---
+# Câu C2 - Cascade Puzzle
+- Cho file css:
+```css
+body { font-size: 16px; color: #333; }
+.container { font-size: 14px; }
+.card { color: blue; }
+.card .title { font-size: 20px; }
+.card p { color: inherit; }
+#featured .title { color: red; }
+.highlight { color: green !important; }
+```
+- Và file html:
+```html
+<body>
+    <div class="container">
+        <div class="card" id="featured">
+            <h2 class="title highlight">Sản phẩm A</h2>
+            <p>Mô tả sản phẩm</p>
+        </div>
+        <div class="card">
+            <h2 class="title">Sản phẩm B</h2>
+            <p class="highlight">Mô tả sản phẩm B</p>
+        </div>
+    </div>
+</body>
+``` 
+### 1. "Sản phẩm A" (h2) có font-size = ? và color = ?
+Đoạn code: `<h2 class="title highlight">Sản phẩm A</h2>`
+#### Font-size
+##### Các rule liên quan:
+```css
+body{font-size: 16px;}
+.container{font-size: 14px;}
+.card .title{font-size: 20px;}
+```
+##### Cascade:
+- body: `font-size: 16px;` được inherit xuống
+- .container: `font-size: 14px;` ghi đè giá trị 16px bên trong `.container`
+- .card .title: `font-size: 20px;` áp dụng trực tiếp lên `h2`. Rule trực tiếp luôn mạnh hơn inheritance
+
+Kết quả: font-size = 20px
+
+#### Color 
+##### Các rule liên quan
+```css
+.card {color: blue;}
+#featured .title {color: red;}
+.highlight {color: green !important;}
+```
+##### Cascade:
+- .card : `color: blue;` được inherit xuống toàn bộ nội dung card
+- #featured .title : `color: red;` specificity: #featured .title = 1 ID + 1 class= (1,1,0)
+
+cao hơn .card => màu đổi thành đỏ
+- .highlight: `color: green !important;` !important thắng mọi rule bình thường => đổi sang xanh lá
+
+Kết quả: color = green
+### 2. "Mô tả sản phẩm" (p trong card featured) có color = ?
+Đoạn code: `<p>Mô tả sản phẩm</p>`
+
+Các rule liên quan
+```css
+.card {color: blue;}
+.card p {color: inherit;}
+```
+- .card: `color: blue;` => p bên trong sẽ inherit màu xanh.
+
+- .card p: `color: inherit;`
+
+inherit nghĩa là: lấy giá trị từ phần tử cha. Cha là `.card`, `.card` có: `color: blue;`
+
+Kết quả: color = blue
+### 3. "Sản phẩm B" (h2) có font-size = ? và color = ?
+Code: `<h2 class="title">Sản phẩm B</h2>`
+#### Font-size
+##### Rule
+```css
+.card .title { font-size: 20px;}
+```
+
+Kết quả: font-size = 20px
+
+#### Color 
+##### Rule
+```css
+.card {color: blue;}
+```
+##### Inheritance:
+h2 inherit màu từ .card
+- .card: `color: blue;`
+
+Kết quả: color = blue
+
+### 4. "Mô tả sản phẩm B" (p.highlight) có color = ?
+#### Rule:
+```css
+.card p {color: inherit;}
+.highlight {color: green !important;}
+```
+
+Cascade
+- .card p : `color: inherit;` => sẽ nhận màu xanh dương từ `.card`
+- .highlight : `color: green !important;` `!important` thắng hoàn toàn
+
+Kết quả: color = green
+
+Kết quả sau khi chạy code:
+![alt text](screenshots/cascade.png)
