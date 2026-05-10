@@ -269,3 +269,39 @@ Các cột:
 #### Tổng: 250 + 500 + 250 = 1000px=> Layout vừa đúng container.
 ![alt text](screenshots/Co%20border_box.png)
 ---
+# Câu B3 — Specificity Battle
+## 10 Rules + Specificity
+1. `p` Specificity: 0,0,1
+2. `.text` Specificity: 0,1,0
+3. `.highlight` Specificity: 0,1,0
+4. `p.text` Specificity: 0,1,1
+5. `p.highlight` Specificity: 0,1,1
+6. `.text.highlight` Specificity: 0,2,0
+7. `#demo` Specificity: 1,0,0
+8. `p#demo` Specificity: 1,0,1
+9. `#demo.text` Specificity: 1,1,0
+10. `p#demo.text.highlight` Specificity: 1,2,1
+#### Element hiển thị cuối cùng là: Màu đen (black).
+![alt text](screenshots/Specificity.png)
+##### Vì rule: `p#demo.text.highlight` có specificity cao nhất là 1,2,1 nên thắng tất cả các rule khác.
+#### Trường hợp specificity khác nhau thì kết quả sẽ không đổi.
+Ví dụ:
+- #demo vẫn thắng .text
+- vì ID mạnh hơn class
+#### Trường hợp specificity bằng nhau
+Thứ tự sẽ ảnh hưởng.
+Ví dụ:
+```css
+.text {
+    color: blue;
+}
+
+.highlight {
+    color: green;
+}
+```
+- Hai rule đều có specificity: 0,1,0
+- Rule viết SAU sẽ thắng.
+- Nếu .highlight viết sau .text: => màu xanh lá.
+- Nếu .text viết sau: => màu xanh dương.
+
