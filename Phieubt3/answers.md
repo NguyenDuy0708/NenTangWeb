@@ -213,3 +213,59 @@ Trong file có các loại selector sau:
 - Class selector: .active 
 - Universal Selector (*): * { box-sizing: border-box; }
 - Pseudo-classes: header nav ul, header nav ul li a ,...
+---
+# Câu B2 - Box Model Lab
+## Phần 1 — Content-box vs Border-box
+### Hộp 1 (content-box)
+- width khai báo: 300px
+- padding: 20px
+- border: 5px
+#### Chiều rộng thực tế: 300 + 20 + 20 + 5 + 5 = 350px
+Chiều rộng thật đo bằng DevTool = 348.31px 
+![alt text](screenshots/content_box_hop1.png)
+
+### Hộp 2 (border-box)
+- width khai báo: 300px
+- padding: 20px
+- border: 5px
+- box-sizing: border-box
+#### Chiều rộng thực tế: Tổng luôn giữ đúng 300px.
+Nghĩa là:
+- content sẽ tự co nhỏ lại
+- padding và border được tính bên trong width
+#### => DevTools hiển thị khoảng 300px.
+Chiều rộng thật đo bằng DevTool = 300px
+![alt text](screenshots/border_box_hop2.png)
+## Khác biệt
+### content-box
+- Đây là chế độ mặc định của CSS.
+- width chỉ tính phần content.
+- Padding và border sẽ cộng thêm vào kích thước thật.
+- Công thức: Total Width = content + padding trái + padding phải + border trái + border phải
+
+### border-box
+#### width bao gồm:
+- content
+- padding
+- border
+#### Nên tổng kích thước không bị tăng thêm. Border-box giúp layout dễ tính toán hơn và thường được dùng trong thực tế.
+
+# Phần 2 — Layout 3 cột
+
+## Trường hợp KHÔNG dùng border-box
+
+Kích thước thực:
+
+- Sidebar: 250 + 15 + 15 + 2 + 2 = 284px
+- Content: 500 + 20 + 20 + 2 + 2 = 544px
+- Ads: 250 + 15 + 15 + 2 + 2 = 284px
+#### Tổng: 284 + 544 + 284 = 1112px => LỚN HƠN 1000px => Layout bị tràn.
+![alt text](screenshots/Khong%20border_box.png)
+## Trường hợp DÙNG border-box
+Các cột:
+- Sidebar = 250px
+- Content = 500px
+- Ads = 250px
+#### Tổng: 250 + 500 + 250 = 1000px=> Layout vừa đúng container.
+![alt text](screenshots/Co%20border_box.png)
+---
