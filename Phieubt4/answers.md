@@ -104,3 +104,67 @@ Có 4 item = 1 phần bằng nhau
 | 3. Layout blog: main content + sidebar | Grid | Có cấu trúc rõ ràng theo cột: content lớn + sidebar nhỏ. Grid phù hợp cho layout trang tổng thể |
 | 4. Footer với 4 cột thông tin (Về chúng tôi, Liên kết, Hỗ trợ, Liên hệ) | Grid hoặc Flexbox | Nếu chỉ cần chia 4 cột đơn giản → Flexbox được. Nếu muốn kiểm soát hàng/cột tốt hơn → Grid tốt hơn |
 | 5. Card sản phẩm (ảnh trên, text giữa, nút dưới — nút luôn dính đáy) | Kết hợp cả hai | Grid/Flex để bố trí danh sách card; bên trong card dùng Flexbox theo cột để nút luôn dính đáy |
+---
+# Câu C2 - Debug Flexbox
+### Lỗi 1: Cards không đều chiều cao — nút "Mua" bị nhảy lên/xuống
+```css
+.card-container { display: flex; flex-wrap: wrap; }
+.card { width: 30%; margin: 1.5%; }
+.card img { width: 100%; }
+.card h3 { font-size: 18px; }
+.card .btn { padding: 10px; }
+```
+#### Nguyên nhân:
+- `.card` chưa dùng Flexbox theo cột.
+- Nút `.btn` đang nằm ngay sau nội dung: nội dùng dài thì nút bị đẩy xuống và ngược lại
+#### Cách sửa"
+```css
+.card-container {display: flex;flex-wrap: wrap;}
+.card {width: 30%;margin: 1.5%;display: flex;flex-direction: column;}
+.card img {width: 100%;}
+.card h3 {font-size: 18px;}
+.card .btn {padding: 10px;margin-top: auto;}
+```
+#### Kết quả: ![alt text](screenshots/Loi1.png)
+
+### Lỗi 2: Muốn items nằm giữa cả ngang lẫn dọc trong container 100vh, nhưng item vẫn dính góc trái trên
+```css
+.hero {
+    height: 100vh;
+    display: flex;
+}
+.hero-content {
+    text-align: center;
+}
+```
+#### Nguyên nhân:
+- Container `.hero` có: `display: flex;` nhưng chưa căn ngang dọc
+- Mặc định Flexbox là `justify-content: flex-start`
+`align-items: stretch`
+#### Cách sửa"
+```css
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-content {text-align: center;}
+```
+#### Kết quả: ![alt text](screenshots/Loi2.png)
+### Lỗi 3: Sidebar bị co lại khi content quá dài
+```css
+.layout { display: flex; }
+.sidebar { width: 250px; }
+.content { flex: 1; }
+```
+#### Nguyên nhân:
+- Trong Flexbox mặc định item có `flex-shrink: 1;` nghĩa là được phép co lại khi thiếu chỗ
+- Sidebar có `width: 250px;` nhưng width không đảm bảo không co trong Flexbox
+#### Cách sửa"
+```css
+.layout {display: flex;}
+.sidebar {width: 250px;flex-shrink: 0;}
+.content {flex: 1;}
+```
+#### Kết quả: ![alt text](screenshots/Loi3.png)
