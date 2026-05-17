@@ -96,6 +96,11 @@ Có 4 item = 1 phần bằng nhau
 
 ##### Tài liệu tham chiếu: tuan_3_css_advance
 ---
+# Câu B1:
+- Đây là giao diện ban đầu:
+![alt text](screenshots/b1_bandau.png)
+- Đây là giao diện sau khi lướt xuống:
+![alt text](screenshots/b1_sau_khi_luot_xuong.png)
 # Câu C1 - Flexbox vs Grid: Khi nào dùng gì?
 | Tình huống | Nên dùng | Giai thích |
 |------------|----------|------------|
