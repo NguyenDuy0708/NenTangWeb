@@ -94,4 +94,4 @@ Có 4 item = 1 phần bằng nhau
 |  4  |  5  | 6 |
 |  7  |    |   |
 
-##### Tài liệu tham chiếu: tuan_2_css_advance
+##### Tài liệu tham chiếu: tuan_3_css_advance
