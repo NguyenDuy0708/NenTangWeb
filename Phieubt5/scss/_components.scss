@@ -1,0 +1,262 @@
+body{
+    font-family:$font-primary;
+    background:$background-color;
+    color:$text-color;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+    background:$primary-color;
+    color:$white;
+
+    padding:$spacing-md $spacing-lg;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    .logo{
+        font-size:28px;
+        font-weight:bold;
+    }
+
+    .nav{
+
+        display:none;
+
+        a{
+            color:$white;
+            text-decoration:none;
+            margin-left:$spacing-md;
+
+            transition:$transition;
+
+            &:hover{
+                color:$secondary-color;
+            }
+        }
+    }
+
+    .hamburger{
+        font-size:30px;
+        cursor:pointer;
+    }
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+
+    display:none;
+
+    background:$white;
+
+    padding:$spacing-lg;
+
+    border-radius:$border-radius;
+
+    .filters{
+
+        display:flex;
+        flex-direction:column;
+        gap:$spacing-md;
+
+        select{
+            padding:$spacing-sm;
+        }
+    }
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products{
+
+    display:grid;
+    grid-template-columns:1fr;
+
+    gap:$spacing-lg;
+
+    padding:$spacing-lg;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+
+    background:$white;
+
+    border-radius:$border-radius;
+
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+
+    transition:all $transition;
+
+    @include card-shadow;
+
+    .card-image{
+
+        overflow:hidden;
+
+        img{
+            width:100%;
+            height:auto;
+
+            display:block;
+
+            transition:transform $transition;
+        }
+    }
+
+    .card-title{
+        font-size:22px;
+        padding:$spacing-md;
+    }
+
+    .card-price{
+        padding:0 $spacing-md $spacing-md;
+    }
+
+    .card-button{
+
+        margin:$spacing-md;
+        margin-top:auto;
+
+        padding:$spacing-sm $spacing-md;
+
+        background:$primary-color;
+        color:$white;
+
+        @include button-style;
+
+        &:hover{
+            background:$secondary-color;
+            color:black;
+            transform:scale(1.05);
+        }
+    }
+
+    &:hover{
+
+        transform:translateY(-8px);
+
+        box-shadow:0 10px 20px rgba(0,0,0,0.2);
+
+        .card-image img{
+            transform:scale(1.1);
+        }
+    }
+
+    &.featured{
+        border:3px solid $secondary-color;
+    }
+}
+
+/* =========================
+   ADS
+========================= */
+
+.ads{
+
+    display:none;
+
+    background:$white;
+
+    padding:$spacing-lg;
+
+    border-radius:$border-radius;
+
+    img{
+        width:100%;
+        border-radius:$border-radius;
+    }
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+    background:$primary-color;
+    color:$white;
+
+    text-align:center;
+
+    padding:$spacing-lg;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@include respond-to(tablet){
+
+    .header{
+
+        .nav{
+            display:flex;
+        }
+
+        .hamburger{
+            display:none;
+        }
+    }
+
+    .sidebar{
+        display:block;
+
+        margin:$spacing-lg;
+    }
+
+    .products{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@include respond-to(desktop){
+
+    .layout{
+
+        display:grid;
+
+        grid-template-columns:
+            200px
+            1fr
+            200px;
+
+        gap:$spacing-lg;
+    }
+
+    .sidebar{
+
+        .filters{
+            flex-direction:column;
+        }
+    }
+
+    .products{
+        grid-template-columns:
+            repeat(4, 1fr);
+    }
+
+    .ads{
+        display:block;
+    }
+}
