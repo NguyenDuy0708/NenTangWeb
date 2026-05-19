@@ -194,3 +194,163 @@ Trang web được sử dụng là https://www.youtube.com
 - Hamburger icon khi bấm vào thanh sidebar sẽ có hiệu ứng lướt ra, lướt
 
 Trong youtube em không tìm thấy bất kỳ `@media` nào cả 
+
+# Bài C2 — Thiết kế Responsive Strategy
+
+### 1. Mobile Layout (<768px)
+#### Wireframe
+```text
+┌──────────────────────┐
+│ LOGO      ☰ MENU     │
+│ Phone: 0123 456 789  │
+├──────────────────────┤
+│                      │
+│     HERO IMAGE       │
+│                      │
+├──────────────────────┤
+│     FOOD IMAGE 1     │
+├──────────────────────┤
+│     FOOD IMAGE 2     │
+├──────────────────────┤
+│     FOOD IMAGE 3     │
+├──────────────────────┤
+│     FOOD IMAGE 4     │
+├──────────────────────┤
+│     FOOD IMAGE 5     │
+├──────────────────────┤
+│     FOOD IMAGE 6     │
+├──────────────────────┤
+│     BOOKING FORM     │
+│  Date                │
+│  Time                │
+│  Guests              │
+│  Notes               │
+│  [BOOK NOW]          │
+├──────────────────────┤
+│    GOOGLE MAPS       │
+├──────────────────────┤
+│       FOOTER         │
+└──────────────────────┘
+```
+#### Những cái bị ẩn
+- Navigation menu đầy đủ
+- Chỉ hiện hamburger ☰
+- Một số text phụ có thể bị ẩn
+#### Form nằm dưới grid ảnh vì:
+- mobile ưu tiên cuộn dọc
+- dễ thao tác bằng ngón tay
+### 2. Tablet Layout (768px–1023px)
+#### Wireframe
+```text
+┌────────────────────────────────┐
+│ LOGO      MENU       PHONE     │
+├────────────────────────────────┤
+│                                │
+│          HERO IMAGE            │
+│                                │
+├────────────────────────────────┤
+│   IMG1    │    IMG2            │
+├───────────┼────────────────────┤
+│   IMG3    │    IMG4            │
+├───────────┼────────────────────┤
+│   IMG5    │    IMG6            │
+├────────────────────────────────┤
+│        BOOKING FORM            │
+├────────────────────────────────┤
+│         GOOGLE MAPS            │
+├────────────────────────────────┤
+│            FOOTER              │
+└────────────────────────────────┘
+```
+#### Grid ảnh có 2 cột vì tablet rộng hơn mobile.
+#### Bản đồ nằm dưới form đặt bàn
+
+### 3. Desktop Layout (≥1024px)
+#### Wireframe
+```text
+┌──────────────────────────────────────────────┐
+│ LOGO      NAVIGATION           PHONE         │
+├──────────────────────────────────────────────┤
+│                                              │
+│                HERO IMAGE                    │
+│                                              │
+├───────────────────┬──────────────────────────┤
+│                   │                          │
+│   FOOD GRID       │      BOOKING FORM        │
+│   3 COLUMNS       │                          │
+│                   │                          │
+│                   │                          │
+├───────────────────┴──────────────────────────┤
+│                GOOGLE MAPS                   │
+├──────────────────────────────────────────────┤
+│                   FOOTER                     │
+└──────────────────────────────────────────────┘
+```
+#### Layout có 2 cột chính
+- trái: danh sách thức ăn trưng bày
+- phải: booking form
+#### Sidebar không cần sidebar riêng. Booking form đóng vai trò như sidebar phải.
+
+### CSS Skeleton (Mobile-First)
+```css
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:Arial, sans-serif;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px;
+}
+
+.hero{ height:300px; }
+
+.food-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+    padding:16px;
+}
+
+.booking-form{
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.map{ padding:16px; }
+
+.footer{
+    padding:20px;
+    text-align:center;
+}
+
+@media (min-width:768px){
+    .food-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero{ height:400px; }
+}
+
+@media (min-width:1024px){
+    .main-layout{
+        display:grid;
+        grid-template-columns: 2fr 1fr;
+        gap:32px;
+        padding:32px;
+    }
+    .food-grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .hero{
+        height:500px;
+    }
+}
+```
