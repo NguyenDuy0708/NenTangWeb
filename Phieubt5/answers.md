@@ -166,3 +166,31 @@ Sử dụng công cụ compile như :
 - Dự án thực tế: Webpack/Vite tự xử lý (React/Vue đã tích hợp sẵn)
 
 Tài liệu tham chiếu: tuan_3_css_advanced/16_sass_scss.md
+---
+# Bài C1 — Phân tích trang web thực
+Trang web được sử dụng là https://www.youtube.com
+- Dạng desktop 
+![alt text](screenshots/CauC1_desktop.png)
+- Dạng tablet
+![alt text](screenshots/CauC1_tablet.png)
+- Dạng mobile
+![alt text](screenshots/CauC1_mobile.png)
+
+### Desktop 
+- Hiển thị sẵn sidebar bên trái 
+- Hamburger icon khi nhấn vào sẽ ẩn, hiện thanh sidebar 
+- navbar lọc nằm ngang dưới ô tìm kiếm
+- Lưới content 3 items 1 hàng
+### Tablet
+- Không còn hiện sẵn sidebar bên trái
+- Font size nhỏ hơn
+- Lưới content 2 items 1 hàng
+- Hamburger icon khi bấm vào thanh sidebar sẽ có hiệu ứng lướt ra, lướt về
+### Mobile
+- Không còn hiện sẵn sidebar bên trái
+- Font size nhỏ hơn
+- Lưới content chỉ còn 1 items 1 hàng
+- navbar lọc nằm ngang dưới ô tìm kiếm đã biến mất
+- Hamburger icon khi bấm vào thanh sidebar sẽ có hiệu ứng lướt ra, lướt
+
+Trong youtube em không tìm thấy bất kỳ `@media` nào cả 
