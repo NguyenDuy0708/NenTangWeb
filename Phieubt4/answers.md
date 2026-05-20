@@ -173,3 +173,6 @@ Có 4 item = 1 phần bằng nhau
 .content {flex: 1;}
 ```
 #### Kết quả: ![alt text](screenshots/Loi3.png)
+
+# Câu D-Video
+link: https://drive.google.com/drive/u/0/folders/1BCKjT6CJm6Mm8TLHa_9kToKog42KpMU6
