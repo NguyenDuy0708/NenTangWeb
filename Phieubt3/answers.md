@@ -458,3 +458,6 @@ Kết quả: color = green
 
 Kết quả sau khi chạy code:
 ![alt text](screenshots/cascade.png)
+
+# Câu D - Video
+Link video: https://drive.google.com/drive/u/0/folders/1BCKjT6CJm6Mm8TLHa_9kToKog42KpMU6
