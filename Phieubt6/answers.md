@@ -184,3 +184,311 @@ Phù hợp cho :Dashboard, data Table, biểu đồ lớn
 - Từ md trở lên: có max-width như `.container`
 
 Tài liệu tham khảo: tuan_4_css_frameworks/bootraps/03_components.md + 04_utilities.md
+---
+# Câu C1 — Tùy biến Bootstrap
+## 1. Muốn đổi màu `$primary` từ xanh mặc định sang `#E63946` thì làm như thế nào?
+### Công cụ cần dùng
+- Node.js
+- npm
+- Bootstrap source code (SCSS)
+- Trình biên dịch Sass
+
+Cài Sass:
+```bash
+npm install sass
+```
+Hoặc cài Bootstrap:
+
+```bash
+npm install bootstrap
+```
+## Bước 1: Tạo file custom.scss
+
+```scss
+// Ghi đè biến Bootstrap trước khi import
+$primary: #E63946;
+@import "../node_modules/bootstrap/scss/bootstrap";
+```
+Bootstrap sẽ lấy giá trị mới của `$primary` và tạo lại toàn bộ hệ thống màu.
+## Bước 2: Compile SCSS
+```bash
+sass scss/custom.scss css/custom.css
+```
+hoặc:
+```bash
+sass --watch scss/custom.scss css/custom.css
+```
+Sau khi compile sẽ sinh:
+```css
+.btn-primary{
+   background-color:#E63946;
+}
+.bg-primary{
+   background-color:#E63946;
+}
+.text-primary{
+   color:#E63946;
+}
+```
+## Bước 3: Import file 
+```html
+<link rel="stylesheet" href="css/custom.css">
+```
+## Bootstrap xử lý thế nào?
+Bootstrap định nghĩa: `$primary: #0d6efd;`
+Sau đó rất nhiều component sử dụng:
+```scss
+.btn-primary
+.alert-primary
+.bg-primary
+.text-primary
+.border-primary
+.link-primary
+.dropdown-item
+.pagination
+.form-control
+```
+Khi đổi: `$primary: #E63946;` toàn bộ các component trên đều tự cập nhật đồng bộ
+## 2. Tại sao không nên override trực tiếp?
+Ví dụ:
+```css
+.btn-primary{
+    background:red;
+}
+```
+Nhìn có vẻ hoạt động nhưng có nhiều vấn đề.
+### Vấn đề 1: Chỉ đổi được một component
+Mới đổi:`.btn-primary`
+
+Nhưng các class khác vẫn màu xanh:
+```html
+<div class="alert alert-primary"></div>
+<div class="text-primary"></div>
+<div class="bg-primary"></div>
+<a class="link-primary"></a>
+```
+=> giao diện mất tính nhất quán.
+### Vấn đề 2: Phải sửa nhiều nơi => Rất dễ sót
+Bạn phải tự override:
+```css
+.btn-primary
+.bg-primary
+.text-primary
+.border-primary
+.alert-primary
+.link-primary
+.pagination
+.nav-pills
+.dropdown-item
+```
+
+### Vấn đề 3: Trục trặc khi cập nhật Bootstrap
+Bootstrap update:
+```css
+.btn-primary:hover
+.btn-primary:focus
+.btn-primary:active
+```
+Các state mới có thể không được override, kết quả:
+- màu bình thường đỏ
+- hover lại xanh
+
+=>UI bị lỗi.
+### Vấn đề 4: Khó bảo trì
+Sau 6 tháng thì không ai nhớ được vì sao phải sửa từng nơi
+```css
+.btn-primary { ... }
+.alert-primary { ... }
+.text-primary { ... }
+```
+## Lợi ích của SASS Variables
+Chỉ sửa: `$primary: #E63946;`
+
+Bootstrap tự tạo lại:
+```scss
+.btn-primary
+.bg-primary
+.text-primary
+.alert-primary
+.border-primary
+.link-primary
+.badge
+.pagination
+```
+### Ưu điểm
+1. Đồng bộ toàn hệ thống
+2. Dễ bảo trì
+3. Dễ nâng cấp Bootstrap
+4. Theo đúng thiết kế Design System
+
+# Câu C2 — So sánh CSS thuần và Bootstrap
+## 1. CSS thuần tạo Navbar Responsive
+### HTML
+```html
+<nav class="navbar">
+    <div class="logo">Shop</div>
+    <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="login-btn">Login</button>
+</nav>
+```
+### CSS
+
+```css
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    background:#fff;
+    border-bottom:1px solid #ddd;
+}
+.menu{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+.menu a{
+    text-decoration:none;
+    color:#333;
+}
+.login-btn{
+    padding:8px 15px;
+    border:none;
+    background:#0d6efd;
+    color:white;
+    border-radius:5px;
+}
+@media(max-width:768px){
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+    }
+    .menu{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+```
+Khoảng:40–60 dòng CSS
+## 2. CSS thuần tạo Product Card
+### HTML
+```html
+<div class="card">
+    <img src="product.jpg">
+    <div class="card-body">
+        <h3>Product Name</h3>
+        <p>Description</p>
+        <button>Mua ngay</button>
+    </div>
+</div>
+```
+### CSS
+```css
+.card{
+    width:300px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+.card img{
+    width:100%;
+}
+.card-body{
+    padding:15px;
+}
+.card button{
+    width:100%;
+    padding:10px;
+    background:#0d6efd;
+    color:white;
+    border:none;
+}
+```
+Khoảng: 20–30 dòng CSS
+## Tổng CSS thuần
+Navbar + Card gần 60–90 dòng CSS
+## Bootstrap Version
+Navbar:
+```html
+<nav class="navbar navbar-expand-lg bg-light">...</nav>
+```
+Card:
+```html
+<div class="card">
+   <img class="card-img-top">
+   <div class="card-body">...</div>
+</div>
+```
+Gần như 0 dòng CSS
+
+Bootstrap đã viết sẵn.
+## So sánh
+
+| Tiêu chí | CSS Thuần | Bootstrap |
+|-----------|-----------|-----------|
+| Số dòng CSS | 60–90+ dòng | 0–10 dòng |
+| Thời gian phát triển | Chậm hơn | Nhanh hơn |
+| Responsive | Tự viết media query | Có sẵn Grid System |
+| Component | Tự xây dựng | Có sẵn |
+| Bảo trì | Tùy dự án | Dễ nếu dùng đúng convention |
+| Kích thước file | Nhẹ | Nặng hơn |
+## Khi nào nên dùng Bootstrap?
+### 1. Prototype nhanh
+Ví dụ:
+- Demo sản phẩm
+- MVP
+- Landing page
+- Dashboard admin
+
+-> Bootstrap giúp hoàn thành giao diện trong vài giờ thay vì vài ngày.
+### 2. Dự án nội bộ
+Ví dụ:
+- CRM
+- ERP
+- Quản lý nhân sự
+- Quản lý kho
+
+-> Ưu tiên tốc độ phát triển hơn là thiết kế độc đáo.
+### 3. Nhóm nhỏ hoặc ít Frontend
+Bootstrap cung cấp sẵn:
+- Grid
+- Modal
+- Navbar
+- Accordion
+- Dropdown
+- Form
+
+-> giúp giảm rất nhiều công việc.
+### 4. Cần Responsive nhanh
+Bootstrap đã tối ưu:
+```html
+col-12
+col-md-6
+col-lg-3
+```
+-> không cần viết media query thủ công.
+## Khi nào không nên dùng Bootstrap?
+### 1. Website có thiết kế độc quyền
+Ví dụ:
+- Portfolio cao cấp
+- Website thương hiệu
+- Landing page marketing đặc biệt
+
+-> Bootstrap có thể làm giao diện trông giống nhiều website khác.
+### 2. Dự án cần tối ưu hiệu năng cực cao
+Ví dụ:
+- Trang tải cực nhanh
+- Embedded web
+- Thiết bị cấu hình thấp
+
+-> CSS thuần thường nhẹ hơn Bootstrap.
