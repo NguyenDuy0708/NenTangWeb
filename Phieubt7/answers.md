@@ -123,4 +123,16 @@ var html = `<div class="card">
   <span>Giá: ${price}đ</span>
 </div>`;
 
+# Câu C1 — Debug JavaScript
+1. Input có thể là chuỗi (ví dụ "100000") -> cần ép kiểu Number. Nếu không, phép toán sẽ nối chuỗi hoặc cho kết quả không đúng.
+  - Sửa: dùng `Number()` và kiểm tra `isNaN`.
+2. Không kiểm tra xem `phanTramGiam` có phải số hợp lệ (NaN) hay không.
+  - Sửa: ép kiểu rồi kiểm tra `isNaN(phanTramGiam)`.
+3. Dùng phép gán trong điều kiện: `if (giaSauGiam = 0)` — đây là phép gán, không phải so sánh.
+  - Sửa: dùng `=== 0` để so sánh giá trị.
+4. Hàm trả về kiểu không nhất quán — làm rõ bằng thông báo lỗi rõ ràng hoặc ném lỗi tùy nhu cầu. Ở đây giữ trả chuỗi thông báo khi input không hợp lệ.
+5. `var` trong vòng lặp với `setTimeout` khiến closure dùng một biến `i` chung; khi callback chạy, `i` đã bằng 5 -> in "Item 5" cho tất cả.
+  - Sửa: dùng `let i` để tạo block-scoped `i`, mỗi lần lặp có một `i` riêng.
+6. Thiếu kiểm tra phần trăm ngoài khoảng 0-100 đã có, nhưng cần thông báo rõ `giaBan` không hợp lệ khi là NaN.
+
 
