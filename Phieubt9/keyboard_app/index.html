@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Keyboard Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Bàn Phím</h1>
+      <div class="controls">
+        <button id="openPalette" aria-label="Open command palette (Ctrl+K)">Ctrl+K</button>
+        <button id="toggleA11yHints" aria-pressed="false">TGợi ý</button>
+      </div>
+    </header>
+
+    <section id="gallery" aria-label="Image gallery"></section>
+
+    <div id="modalRoot"></div>
+
+    <div id="palette" class="palette hidden" role="dialog" aria-modal="true" aria-label="Command palette">
+      <input id="paletteInput" aria-label="Command input" placeholder="Nhập lệnh... (ví dụ: next, prev, slideshow)" />
+      <ul id="paletteList" role="listbox" tabindex="0"></ul>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
