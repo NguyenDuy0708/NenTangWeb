@@ -135,4 +135,6 @@ var html = `<div class="card">
   - Sửa: dùng `let i` để tạo block-scoped `i`, mỗi lần lặp có một `i` riêng.
 6. Thiếu kiểm tra phần trăm ngoài khoảng 0-100 đã có, nhưng cần thông báo rõ `giaBan` không hợp lệ khi là NaN.
 
+# Câu D-Video
+https://drive.google.com/drive/u/0/folders/1BCKjT6CJm6Mm8TLHa_9kToKog42KpMU6
 
