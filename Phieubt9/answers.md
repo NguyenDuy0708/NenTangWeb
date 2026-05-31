@@ -205,3 +205,5 @@ Vì sao nhanh hơn?
 - DocumentFragment là một container nhẹ không phải phần của cây DOM hiển thị. Thao tác append vào fragment không kích hoạt reflow/repaint.
 - Khi tất cả phần tử đã được thêm vào fragment, append fragment vào DOM chỉ thực hiện một lần reflow/repaint, thay vì 1000 lần. Điều này giảm rất nhiều chi phí layout và render.
 
+# Câu D - Video
+https://drive.google.com/drive/u/0/folders/1BCKjT6CJm6Mm8TLHa_9kToKog42KpMU6

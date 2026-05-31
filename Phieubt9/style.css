@@ -1,0 +1,16 @@
+body { 
+    font-family: Arial; 
+    max-width: 500px;
+    margin: 30px auto; 
+} 
+li { 
+    margin: 10px 0; 
+    cursor: pointer; 
+} 
+.completed { 
+    text-decoration: line-through;
+    color: gray; 
+} 
+button { 
+    margin-left: 10px; 
+}
