@@ -136,3 +136,6 @@ console.log(product.specs.ram); // 16
 ```
 Giải thích: Spread tạo shallow copy của object `product`; trường `specs` là một object tham chiếu nên cả `copy.specs` và `product.specs` cùng trỏ tới cùng một object — thay đổi sâu sẽ thấy ở cả hai.
 
+# Câu D - Video
+https://drive.google.com/drive/u/0/folders/1BCKjT6CJm6Mm8TLHa_9kToKog42KpMU6
+
